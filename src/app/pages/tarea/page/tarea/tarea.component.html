@@ -1,0 +1,20 @@
+<app-tarea-list
+    [tareas]="tareas"
+    (create)="createTarea()"
+    (delete)="deleteTarea($event)"
+    (update)="actualizarTarea($event)"
+    >
+</app-tarea-list>
+
+<app-custom-modal
+    title="festion tarea"
+    [(show)]="showModalTarea">
+    <app-tarea-item
+        *ngIf="showModalTarea"
+        [tareas]="tareas"
+        [title]="formTitle"
+        (create)="postTarea($event)" 
+        (cancel)="reset()" >
+    </app-tarea-item>
+</app-custom-modal>
+

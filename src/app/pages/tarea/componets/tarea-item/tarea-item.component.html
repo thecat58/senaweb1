@@ -1,0 +1,65 @@
+<div class="modal-body">
+  <div class="card-header">
+
+  </div>
+  <div class="card-body">
+    <form class="tareaFormulario" [formGroup]="formTarea" class="was-validated" novalidate>
+      <div class="form-group row">
+        <label class="col-md-4 col-form-label" for="name">
+          Tarea
+        </label>
+        <div class="col-md-7">
+          <input type="text" onkeyup="javascript:this.value=this.value.toUpperCase();"
+            placeholder="Ingrese el nombre de la tarea" class="form-control is-valid" formControlName='nombre'
+            id="nombre" required>
+          <div class="valid-feedback" *ngIf="!nombreTareaField.hasError('required')">
+            Valor válido
+          </div>
+        </div>
+        <div class="invalid-feedback">
+          por favor ingresé un valor válido para el nombre del área
+        </div>
+      </div>
+      <div class="form-group row">
+        <label class="col-md-4 col-form-label" for="code">
+          descripcion
+        </label>
+        <div class="col-md-7">
+          <input type="text" onkeyup="javascript:this.value=this.value.toUpperCase();"
+            placeholder="Por favor ingrese la descripcion de la tarea" class="form-control is-valid"
+            formControlName='descripcion' required>
+          <div class="valid-feedback" *ngIf="!descripcionField.hasError('required')">
+            Valor valido
+          </div>
+        </div>
+        <div class="invalid-feedback">
+          por favor ingrese un valor valido para la descripción
+        </div>
+      </div>
+    </form>
+    <label class="col-md-4 col-form-label" for="estado">
+      Estado
+    </label>
+    <div class="col-md-7">
+      <input type="text" onkeyup="javascript:this.value=this.value.toUpperCase();"
+        placeholder="Ingrese el estadode la tarea" class="form-control is-valid" formControlName='estado' id="estado"
+        required>
+      <div class="valid-feedback" *ngIf="!estadoField.hasError('required')">
+        Valor válido
+      </div>
+    </div>
+    <div class="invalid-feedback">
+      por favor ingresé un valor válido para el nombre del área
+    </div>
+    <div class="card-footer">
+      <button type="submit" class="btn btn-sm btn-primary" (click)="guardarTarea()" [disabled]="formTarea.invalid">
+        <i class="fa fa-dot-circle-o"></i>
+        Aceptar
+      </button>
+      <button type="reset" class="btn btn-sm btn-danger" (click)="closeModal()">
+        <i class="fa fa-ban"></i>
+        Cancelar
+      </button>
+    </div>
+  </div>
+</div>
